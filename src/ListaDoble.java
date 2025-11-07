@@ -75,8 +75,5 @@ public class ListaDoble {
 
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio(){
-
     }
-
-
 }
