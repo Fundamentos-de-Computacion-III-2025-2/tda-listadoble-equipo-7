@@ -46,8 +46,15 @@ public class ListaDoble {
 
     //Eliminar al final
     public int eliminarFinal(){
-
-        return -1;
+        int elemento = -1;
+        if (fin == null){
+            elemento = eliminarInicio();
+        } else if (!listaVacia()) {
+            elemento = fin.dato;
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        return elemento;
     }
 
     //Eliminar un elemento
@@ -75,5 +82,11 @@ public class ListaDoble {
 
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio(){
+        NodoDoble actual = fin;
+        System.out.println();
+        while (actual != null){
+            System.out.print(" <-- "+actual.dato);
+            actual = actual.anterior;
+        }
     }
 }
