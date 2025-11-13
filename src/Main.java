@@ -46,11 +46,20 @@ public class Main {
                     switch (opcion) {
                         case 1://Insertar un elemento al inicio TODO @Félix Espejo Alehtse María
                             break;
-                        case 2://Insertar un elemento al final TODO @Tapia Fimbres Gerardo
+                        case 2://Insertar un elemento al final @Tapia Fimbres Gerardo
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a insertar al final:"));
+                            lista.insertarFinal(elemento);
+                            JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al final");
                             break;
                         case 3: //Insertar en orden TODO @López Gonzáles Andrea Guadalupe
                             break;
-                        case 4: //Eliminar al inicio TODO @Tapia Fimbres Gerardo
+                        case 4: //Eliminar al inicio @Tapia Fimbres GerardoS
+                            int eliminadoInicio = lista.eliminarInicio();
+                            if(eliminadoInicio == -1){
+                                JOptionPane.showMessageDialog(null, "La lista está vacía, no se puede eliminar");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Elemento eliminado al inicio: " + eliminadoInicio);
+                            }
                             break;
                         case 5: //Eliminar al final TODO @Montaño Lares Leonardo
                             break;
