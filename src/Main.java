@@ -36,11 +36,11 @@ public class Main {
                                     "2. Insertar un elemento al final\n"+ //TODO @Tapia Fimbres Gerardo
                                     "3. Insertar un elemento en orden\n"+ //TODO @López Gonzáles Andrea Guadalupe
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @Tapia Fimbres Gerardo
-                                    "5. Eliminar un elemento al final\n"+ //TODO @Montaño Lares Leonardo
+                                    "5. Eliminar un elemento al final\n"+ //Montaño Lares Leonardo
                                     "6. Eliminar un elemento\n"+ //TODO @Félix Espejo Alehtse María
                                     "7. Buscar un elemento\n"+ //TODO @López Gonzáles Andrea Guadalupe
                                     "8. Mostrar los datos de inicio a fin\n"+
-                                    "9. Mostrar los datos de fin a inicio\n"+ //TODO @Montaño Lares Leonardo
+                                    "9. Mostrar los datos de fin a inicio\n"+ //Montaño Lares Leonardo
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
@@ -61,16 +61,21 @@ public class Main {
                                 JOptionPane.showMessageDialog(null, "Elemento eliminado al inicio: " + eliminadoInicio);
                             }
                             break;
-                        case 5: //Eliminar al final TODO @Montaño Lares Leonardo
+                        case 5: //Eliminar al final @Montaño Lares Leonardo
+                            elemento = lista.eliminarFinal();
+                            if (elemento != -1)
+                                JOptionPane.showMessageDialog(null, "El dato " + elemento + " que estaba al final fue eliminado.", "Elemento al final eliminado", JOptionPane.INFORMATION_MESSAGE);
+                            else
+                                JOptionPane.showMessageDialog(null, "El dato que estaba al final NO pudo ser eliminado.", "Error al eliminar al final", JOptionPane.ERROR_MESSAGE);
                             break;
                         case 6: //Eliminar TODO @Félix Espejo Alehtse María
                             break;
                         case 7: //Buscar elemento TODO @López Gonzáles Andrea Guadalupe
                             break;
-                        case 8: //MostrarLista
+                        case 8: //MostrarLista @Montaño Lares Leonardo
                             lista.mostrarInicioFin();
                             break;
-                        case 9: //MostrarLista TODO @Montaño Lares Leonardo
+                        case 9: //MostrarLista
                             lista.mostrarFinInicio();
                             break;
                         case 10: //Salir
