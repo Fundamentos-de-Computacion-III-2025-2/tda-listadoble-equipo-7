@@ -38,7 +38,7 @@ public class Main {
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @Tapia Fimbres Gerardo
                                     "5. Eliminar un elemento al final\n"+ //Montaño Lares Leonardo
                                     "6. Eliminar un elemento\n"+ //TODO @Félix Espejo Alehtse María
-                                    "7. Buscar un elemento\n"+ //TODO @López Gonzáles Andrea Guadalupe
+                                    "7. Buscar un elemento\n"+
                                     "8. Mostrar los datos de inicio a fin\n"+
                                     "9. Mostrar los datos de fin a inicio\n"+ //Montaño Lares Leonardo
                                     "10. Salir\n",
@@ -51,7 +51,15 @@ public class Main {
                             lista.insertarFinal(elemento);
                             JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al final");
                             break;
-                        case 3: //Insertar en orden TODO @López Gonzáles Andrea Guadalupe
+                        case 3: //Insertar en orden
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar en orden: ", 3));
+                                lista.insertarEnOrden(elemento);
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
                         case 4: //Eliminar al inicio @Tapia Fimbres GerardoS
                             int eliminadoInicio = lista.eliminarInicio();
@@ -70,7 +78,17 @@ public class Main {
                             break;
                         case 6: //Eliminar TODO @Félix Espejo Alehtse María
                             break;
-                        case 7: //Buscar elemento TODO @López Gonzáles Andrea Guadalupe
+                        case 7: //Buscar elemento
+                            try{
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el elemento a buscar", "Búsqueda", JOptionPane.QUESTION_MESSAGE));
+                                if (lista.buscarElemento(elemento)){
+                                    JOptionPane.showMessageDialog(null, elemento + " encontrado en la lista", "Elemento encontrado", 1);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, elemento + " No encontrado en la lista", "Elemento No encontrado", 0);
+                                }
+                            } catch (NumberFormatException exception){
+                                JOptionPane.showMessageDialog(null, "Ingrese un dato valido", "Error de ingreso", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 8: //MostrarLista @Montaño Lares Leonardo
                             lista.mostrarInicioFin();
