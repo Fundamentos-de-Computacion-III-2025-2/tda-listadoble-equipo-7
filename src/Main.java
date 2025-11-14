@@ -33,12 +33,12 @@ public class Main {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+ //TODO @Félix Espejo Alehtse María
-                                    "2. Insertar un elemento al final\n"+ //TODO @Tapia Fimbres Gerardo
-                                    "3. Insertar un elemento en orden\n"+ //TODO @López Gonzáles Andrea Guadalupe
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @Tapia Fimbres Gerardo
+                                    "2. Insertar un elemento al final\n"+
+                                    "3. Insertar un elemento en orden\n"+
+                                    "4. Eliminar un elemento al inicio\n"+
                                     "5. Eliminar un elemento al final\n"+ //TODO @Montaño Lares Leonardo
                                     "6. Eliminar un elemento\n"+ //TODO @Félix Espejo Alehtse María
-                                    "7. Buscar un elemento\n"+ //TODO @López Gonzáles Andrea Guadalupe
+                                    "7. Buscar un elemento\n"+
                                     "8. Mostrar los datos de inicio a fin\n"+
                                     "9. Mostrar los datos de fin a inicio\n"+ //TODO @Montaño Lares Leonardo
                                     "10. Salir\n",
@@ -46,9 +46,9 @@ public class Main {
                     switch (opcion) {
                         case 1://Insertar un elemento al inicio TODO @Félix Espejo Alehtse María
                             break;
-                        case 2://Insertar un elemento al final TODO @Tapia Fimbres Gerardo
+                        case 2://Insertar un elemento al final
                             break;
-                        case 3: //Insertar en orden TODO @López Gonzáles Andrea Guadalupe
+                        case 3: //Insertar en orden
                             try {
                                 elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
                                         "Ingresa el elemento: ",
@@ -58,13 +58,13 @@ public class Main {
                                 JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
                             }
                             break;
-                        case 4: //Eliminar al inicio TODO @Tapia Fimbres Gerardo
+                        case 4: //Eliminar al inicio
                             break;
                         case 5: //Eliminar al final TODO @Montaño Lares Leonardo
                             break;
                         case 6: //Eliminar TODO @Félix Espejo Alehtse María
                             break;
-                        case 7: //Buscar elemento TODO @López Gonzáles Andrea Guadalupe
+                        case 7: //Buscar elemento
                             try{
                                 elemento = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el elemento a buscar", "Búsqueda", JOptionPane.QUESTION_MESSAGE));
                                 if (lista.buscarElemento(elemento)){
