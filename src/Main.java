@@ -49,6 +49,14 @@ public class Main {
                         case 2://Insertar un elemento al final TODO @Tapia Fimbres Gerardo
                             break;
                         case 3: //Insertar en orden TODO @López Gonzáles Andrea Guadalupe
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento: ",
+                                        "Insertar en orden: ", 3));
+                                lista.insertarEnOrden(elemento);
+                            } catch (NumberFormatException n) {
+                                JOptionPane.showMessageDialog(null, "Error" + n.getMessage(), "Error de ingreso", 0);
+                            }
                             break;
                         case 4: //Eliminar al inicio TODO @Tapia Fimbres Gerardo
                             break;
@@ -57,6 +65,16 @@ public class Main {
                         case 6: //Eliminar TODO @Félix Espejo Alehtse María
                             break;
                         case 7: //Buscar elemento TODO @López Gonzáles Andrea Guadalupe
+                            try{
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el elemento a buscar", "Búsqueda", JOptionPane.QUESTION_MESSAGE));
+                                if (lista.buscarElemento(elemento)){
+                                    JOptionPane.showMessageDialog(null, elemento + " encontrado en la lista", "Elemento encontrado", 1);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, elemento + " No encontrado en la lista", "Elemento No encontrado", 0);
+                                }
+                            } catch (NumberFormatException exception){
+                                JOptionPane.showMessageDialog(null, "Ingrese un dato valido", "Error de ingreso", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 8: //MostrarLista
                             lista.mostrarInicioFin();

@@ -34,6 +34,15 @@ public class ListaDoble {
     se inserta al final */
 
     public void insertarEnOrden(int dato){
+        if (listaVacia() || dato < inicio.dato) {
+            insertarInicio(dato);
+        } else {
+            NodoDoble actual = inicio;
+            while (actual.siguiente != null && actual.siguiente.dato < dato) {
+                actual = actual.siguiente;
+            }
+            actual.siguiente = new NodoDoble(dato,actual.siguiente,actual.anterior);
+        }
 
     }
 
@@ -58,8 +67,15 @@ public class ListaDoble {
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento){
-
+        NodoDoble actual = inicio;
+        while(actual!=null){
+            if (actual.dato==elemento){
+                return true;
+            }
+            actual = actual.siguiente;
+        }
         return false;
+
 
     }
 
