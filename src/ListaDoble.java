@@ -24,7 +24,14 @@ public class ListaDoble {
 
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
-
+        if(listaVacia()){
+            inicio = fin = new NodoDoble(dato);
+        } else {
+            NodoDoble nuevo = new NodoDoble(dato);
+            fin.siguiente = nuevo;
+            nuevo.anterior = fin;
+            fin = nuevo;
+        }
     }
 
 
@@ -49,14 +56,33 @@ public class ListaDoble {
 
     //Eliminar al inicio
     public int eliminarInicio(){
+        if(listaVacia()){
+            return -1;
+        }
 
-        return -1;
+        int datoEliminado = inicio.dato;
+
+        if(inicio == fin){ // Solo hay un nodo
+            inicio = fin = null;
+        } else {
+            inicio = inicio.siguiente;
+            inicio.anterior = null;
+        }
+
+        return datoEliminado;
     }
 
     //Eliminar al final
     public int eliminarFinal(){
-
-        return -1;
+        int elemento = -1;
+        if (fin == null){
+            elemento = eliminarInicio();
+        } else if (!listaVacia()) {
+            elemento = fin.dato;
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        return elemento;
     }
 
     //Eliminar un elemento
@@ -91,8 +117,11 @@ public class ListaDoble {
 
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio(){
-
+        NodoDoble actual = fin;
+        System.out.println();
+        while (actual != null){
+            System.out.print(" <-- "+actual.dato);
+            actual = actual.anterior;
+        }
     }
-
-
 }
