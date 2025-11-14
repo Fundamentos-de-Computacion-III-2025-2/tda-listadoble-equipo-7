@@ -2,29 +2,36 @@ public class ListaDoble {
     protected NodoDoble inicio, fin; //Apuntadores para saber donde esta el inicio y el fin de la lista doble
 
     //Constructor para crear la lista doble vacía
-    public ListaDoble(){
+    public ListaDoble() {
         inicio = null;
-        fin =null;
+        fin = null;
     }
 
     //Metodo para saber si la lista doble está vacía
-    public boolean listaVacia(){
-        if(inicio==null){
+    public boolean listaVacia() {
+        if (inicio == null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
     //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
-    public void insertarInicio(int dato){
+    public void insertarInicio(int dato) {
+        if (listaVacia()) {
+            inicio = fin = new NodoDoble(dato);
 
-
+        } else {
+            NodoDoble nuevo = new NodoDoble(dato);
+            inicio.anterior = nuevo;
+            nuevo.siguiente = inicio;
+            inicio = nuevo;
+        }
     }
 
     //Metodo para insertar al Final de la lista doble
-    public void insertarFinal(int dato){
-        if(listaVacia()){
+    public void insertarFinal(int dato) {
+        if (listaVacia()) {
             inicio = fin = new NodoDoble(dato);
         } else {
             NodoDoble nuevo = new NodoDoble(dato);
@@ -37,23 +44,23 @@ public class ListaDoble {
 
     /* Metodo para insertar un elemento suponiendo que la lista está en orden ascendente
     es decir, se debe comenzar a recorrer la lista e insertar el elemento antes del primer
-    número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
+    número mayor al elemento que se encuentre en la lista, si no se encuentra un dato mayor
     se inserta al final */
 
-    public void insertarEnOrden(int dato){
+    public void insertarEnOrden(int dato) {
 
     }
 
 
     //Eliminar al inicio
-    public int eliminarInicio(){
-        if(listaVacia()){
+    public int eliminarInicio() {
+        if (listaVacia()) {
             return -1;
         }
 
         int datoEliminado = inicio.dato;
 
-        if(inicio == fin){ // Solo hay un nodo
+        if (inicio == fin) { // Solo hay un nodo
             inicio = fin = null;
         } else {
             inicio = inicio.siguiente;
@@ -64,9 +71,9 @@ public class ListaDoble {
     }
 
     //Eliminar al final
-    public int eliminarFinal(){
+    public int eliminarFinal() {
         int elemento = -1;
-        if (fin == null){
+        if (fin == null) {
             elemento = eliminarInicio();
         } else if (!listaVacia()) {
             elemento = fin.dato;
@@ -77,34 +84,56 @@ public class ListaDoble {
     }
 
     //Eliminar un elemento
-    public int eliminarElemento(int elemento){
+    public int eliminarElemento(int elemento) {
 
+        if (inicio == fin || elemento == inicio.dato) {
+            elemento = eliminarInicio();
+
+        } else if (elemento == fin.dato) {
+            elemento = eliminarFinal();
+
+        } else {
+            NodoDoble index = inicio;
+            NodoDoble indxA, indxB;
+
+            while (index.siguiente != null && index.dato != elemento) {
+                index = index.siguiente;
+            }
+            if (index.dato == elemento) {
+                indxA = index.anterior;
+                indxB = index.siguiente;
+                indxB.anterior = index.anterior;
+                indxA.siguiente = index.siguiente;
+                index = null;
+            }
+        }
         return elemento;
+
     }
 
     //Metodo para buscar un elemento
-    public boolean buscarElemento(int elemento){
+    public boolean buscarElemento(int elemento) {
 
         return false;
 
     }
 
     //Imprimir los datos de la lista doble de inicio a fin
-    public void mostrarInicioFin(){
-        NodoDoble actual=inicio;
+    public void mostrarInicioFin() {
+        NodoDoble actual = inicio;
         System.out.println();
-        while(actual!=null){
-            System.out.print(actual.dato+" --> ");
+        while (actual != null) {
+            System.out.print(actual.dato + " --> ");
             actual = actual.siguiente;
         }
     }
 
     //Imprimir los datos de la lista doble de fin a inicio
-    public void mostrarFinInicio(){
+    public void mostrarFinInicio() {
         NodoDoble actual = fin;
         System.out.println();
-        while (actual != null){
-            System.out.print(" <-- "+actual.dato);
+        while (actual != null) {
+            System.out.print(" <-- " + actual.dato);
             actual = actual.anterior;
         }
     }
