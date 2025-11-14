@@ -44,7 +44,10 @@ public class Main {
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1://Insertar un elemento al inicio TODO @Félix Espejo Alehtse María
+                        case 1://Insertar un elemento al inicio @Félix Espejo Alehtse María
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a insertar al inicio:"));
+                            lista.insertarInicio(elemento);
+                            JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al inicio");
                             break;
                         case 2://Insertar un elemento al final @Tapia Fimbres Gerardo
                             elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a insertar al final:"));
@@ -76,7 +79,15 @@ public class Main {
                             else
                                 JOptionPane.showMessageDialog(null, "El dato que estaba al final NO pudo ser eliminado.", "Error al eliminar al final", JOptionPane.ERROR_MESSAGE);
                             break;
-                        case 6: //Eliminar TODO @Félix Espejo Alehtse María
+                        case 6: //Eliminar @Félix Espejo Alehtse María
+                            if (lista.listaVacia()){
+                                JOptionPane.showMessageDialog(null, "La lista está vacía, no se puede eliminar");
+                            }
+                            else {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a eliminar:"));
+                                lista.eliminarElemento(elemento);
+                                JOptionPane.showMessageDialog(null, "El primer elemento " + elemento + " ha sido eliminado ");
+                            }
                             break;
                         case 7: //Buscar elemento
                             try{
